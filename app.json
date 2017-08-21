@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "page/index/index",
+    "page/record/record",
+    "page/logs/logs"
+  ],
+  "window": {
+    "defaultTitle": "Todolist",
+    "titleBarColor": "#fff",
+    "backgroundColor":"#ffffff"
+  },
+  "tabBar": {
+    "selectedColor": "#108ee9",
+    "items": [{
+      "pagePath": "page/index/index",
+      "name": "今日",
+      "icon": "icons/select-0.png",
+      "activeIcon": "icons/select-1.png"
+    }, {
+      "pagePath": "page/record/record",
+      "name": "记事本",
+      "icon": "icons/list-0.png",
+      "activeIcon": "icons/list-1.png"
+    }]
+  }
+}

@@ -1,0 +1,50 @@
+<!-- <view class="container">
+  <view onTap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class="container">
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+		<view class="section">
+			<input placeholder="添加一个todos" value="{{input}}" onInput="handleInput"/>
+		</view>
+		<view class="btn">
+			<button catchTap="todoAdd" class="weui-btn mini-btn" type="primary" size="mini">添加Todo</button>
+		</view>
+  </view>
+</view>
+
+<view class="todos">
+  <view class="weui-cells__title">TodoList</view>
+	<view class="weui-cells weui-cells_after-title">
+		<block a:if="{{todos.length}}">
+			<checkbox-group onChange="todoChange">
+				<label class="weui-cell weui-check__label" a:for="{{todos}}">
+					<checkbox class="weui-check" value="{{item.index}}" checked="{{item.completed}}"/>
+					 <view class="weui-cell__hd weui-check__hd_in-checkbox" style="color:{{color}};">
+						 <icon class="weui-icon-checkbox_circle" type="cancel" size="23" a:if="{{!item.completed}}"></icon> 
+						<icon class="weui-icon-checkbox_success" type="success" size="23" a:if="{{item.completed}}"></icon>
+					</view> 
+					<view class="weui-cell__bd" a:if="{{!item.completed}}">{{item.value}}</view>
+					<view class="weui-cell__bd todo-checked" a:if="{{item.completed}}">{{item.value}}</view>
+				</label>
+			</checkbox-group>
+		</block>
+		
+		<block a:else>
+			<view class="weui-cell">
+				<view class="weui-cell__bd">所有的todo都在这里!</view>
+			</view>
+		</block>
+	</view>
+</view>
+
+<view class="footer">
+  <text onTap="handleAll">{{allCompleted ? '全选' : '不全选'}}</text>
+  <text onTap="clearCompleted">清除</text>
+</view>
